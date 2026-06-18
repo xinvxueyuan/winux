@@ -1,0 +1,42 @@
+name: Feature request
+description: Suggest an improvement or new capability for winux
+title: "feat: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the desired behavior or command shape.
+      placeholder: |
+        Example:
+        winux run --backend wsl grep -R todo .
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - doctor / environment detection
+        - which / command resolution
+        - run / command execution
+        - path conversion
+        - shell integration
+        - documentation
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false
