@@ -8,18 +8,7 @@ use std::{
     process::{self, Command},
 };
 
-const COMMON_COMMANDS: &[&str] = &[
-    "ls",
-    "cat",
-    "grep",
-    "find",
-    "sort",
-    "tar",
-    "curl",
-    "git",
-    "bash",
-    "wsl",
-];
+const COMMON_COMMANDS: &[&str] = &["ls", "cat", "grep", "find", "sort", "tar", "curl", "git", "bash", "wsl"];
 
 fn main() {
     let args: Vec<OsString> = env::args_os().skip(1).collect();
@@ -217,7 +206,9 @@ fn is_runnable_file(path: &Path) -> bool {
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
-        path.metadata().map(|metadata| metadata.permissions().mode() & 0o111 != 0).unwrap_or(false)
+        path.metadata()
+            .map(|metadata| metadata.permissions().mode() & 0o111 != 0)
+            .unwrap_or(false)
     }
 
     #[cfg(not(unix))]
