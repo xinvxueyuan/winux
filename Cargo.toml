@@ -1,0 +1,16 @@
+[package]
+name = "winux"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+license = "Apache-2.0"
+description = "A Linux-like CLI workflow manager for Windows."
+repository = "https://github.com/xinvxueyuan/winux"
+readme = "README.md"
+keywords = ["windows", "cli", "linux", "rust"]
+categories = ["command-line-utilities", "development-tools"]
+
+[profile.release]
+codegen-units = 1
+lto = "thin"
+strip = "symbols"
