@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible problem in winux
+title: "bug: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail for reproduction.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Please provide commands and inputs.
+      placeholder: |
+        1. Run `winux ...`
+        2. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Paste relevant `winux doctor` output when possible.
+      placeholder: |
+        OS:
+        Shell:
+        winux version:
+    validations:
+      required: true
