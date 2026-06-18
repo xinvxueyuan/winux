@@ -8,7 +8,9 @@ use std::{
     process::{self, Command},
 };
 
-const COMMON_COMMANDS: &[&str] = &["ls", "cat", "grep", "find", "sort", "tar", "curl", "git", "bash", "wsl"];
+const COMMON_COMMANDS: &[&str] = &[
+    "ls", "cat", "grep", "find", "sort", "tar", "curl", "git", "bash", "wsl",
+];
 
 fn main() {
     let args: Vec<OsString> = env::args_os().skip(1).collect();
