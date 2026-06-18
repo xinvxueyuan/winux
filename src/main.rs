@@ -9,7 +9,16 @@ use std::{
 };
 
 const COMMON_COMMANDS: &[&str] = &[
-    "ls", "cat", "grep", "find", "sort", "tar", "curl", "git", "bash", "wsl",
+    "ls",
+    "cat",
+    "grep",
+    "find",
+    "sort",
+    "tar",
+    "curl",
+    "git",
+    "bash",
+    "wsl",
 ];
 
 fn main() {
@@ -176,8 +185,8 @@ fn candidate_names(command: &OsString) -> Vec<OsString> {
     #[cfg(windows)]
     {
         let mut names = vec![command.clone()];
-        let pathext = env::var_os("PATHEXT")
-            .unwrap_or_else(|| OsString::from(".COM;.EXE;.BAT;.CMD"));
+        let pathext =
+            env::var_os("PATHEXT").unwrap_or_else(|| OsString::from(".COM;.EXE;.BAT;.CMD"));
 
         for extension in env::split_paths(&pathext) {
             if let Some(extension) = extension.to_str() {
@@ -208,9 +217,7 @@ fn is_runnable_file(path: &Path) -> bool {
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
-        path.metadata()
-            .map(|metadata| metadata.permissions().mode() & 0o111 != 0)
-            .unwrap_or(false)
+        path.metadata().map(|metadata| metadata.permissions().mode() & 0o111 != 0).unwrap_or(false)
     }
 
     #[cfg(not(unix))]
